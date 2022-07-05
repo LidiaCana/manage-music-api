@@ -19,4 +19,8 @@ export class UsersService {
   async findOne(id: string): Promise<User> {
     return this.userModel.findOne({ spotify_id: id }).exec();
   }
+
+  async update(id: string, postData: CreateUserDto): Promise<User> {
+    return this.userModel.findOneAndUpdate({ spotify_id: id, postData }).exec();
+  }
 }
